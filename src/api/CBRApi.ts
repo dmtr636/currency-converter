@@ -23,7 +23,10 @@ export const fetchCurrencies = () => {
                     name: "Российский рубль",
                     value: 1,
                 }
+
+                // Sort by currency code
                 currencies = Object.fromEntries(Object.entries(currencies).sort())
+
                 dispatch(setCurrencies(currencies))
             })
     }

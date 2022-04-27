@@ -1,5 +1,4 @@
-import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
-import SelectCurrencyMenuItemText from "./SelectCurrencyMenuItemText";
+import {MenuItem, Select, SelectChangeEvent, Typography} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {currencySlice} from "../store/CurrencySlice"
 import {RootState} from "../store";
@@ -39,11 +38,15 @@ function SelectCurrency(props: { side: string; }) {
             MenuProps={MenuProps}
         >
             {Object.keys(currencies).map(key =>
-                <MenuItem value={currencies[key].code} key={""}>
-                    <SelectCurrencyMenuItemText
-                        code={currencies[key].code}
-                        name={currencies[key].name}
-                    />
+                <MenuItem value={currencies[key].code} key={key}>
+                    <Typography sx={{textOverflow: "ellipsis", display: "block", overflow: "hidden"}}>
+                    <span style={{ width: "45px", display: "inline-block"}}>
+                        {currencies[key].code}
+                    </span>
+                    <span style={{ color: "#71767A"}}>
+                        {currencies[key].name}
+                    </span>
+                    </Typography>
                 </MenuItem>
             )}
         </Select>
