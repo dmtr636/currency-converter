@@ -17,8 +17,8 @@ function Layout() {
             boxSizing={"border-box"}
         >
             <Stack
-                direction={{ xs: 'column', sm: 'row' }}
-                spacing={{ xs: 2, sm: 1, md: 2 }}
+                direction={{ xs: 'column', md: 'row' }}
+                spacing={2}
                 alignItems={"center"}
                 justifyContent={"center"}
             >

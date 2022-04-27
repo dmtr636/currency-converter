@@ -14,7 +14,7 @@ body {
     opacity: 0.5;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .swap-button {
         transform: rotate(90deg);
     }

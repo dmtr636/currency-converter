@@ -16,7 +16,7 @@ function InputColumn(props: { side: string }) {
         <Stack
             direction={"column"}
             spacing={2}
-            maxWidth={{ xs: '300px', sm: '250px', md: '380px'}}
+            maxWidth={'380px'}
         >
             <Typography variant={"h6"}>{headerText}</Typography>
 

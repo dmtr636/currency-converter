@@ -2,6 +2,7 @@
   "name": "currency-converter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dmtr636.github.io/currency-converter",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -17,6 +18,7 @@
     "@types/react-dom": "^18.0.0",
     "axios": "^0.26.1",
     "decimal.js": "^10.3.1",
+    "gh-pages": "^3.2.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.1",
@@ -27,6 +29,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

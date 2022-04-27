@@ -65,8 +65,8 @@ export const currencySlice = createSlice({
 })
 
 function calcValue(state: RootState, sourceValue: string, sourceSide: string) {
-    let leftExchangeRate = state.currencies[state.currency.left].value
-    let rightExchangeRate = state.currencies[state.currency.right].value
+    let leftExchangeRate = new Decimal(state.currencies[state.currency.left].value)
+    let rightExchangeRate = new Decimal(state.currencies[state.currency.right].value)
     if (sourceValue.length === 0) {
         sourceValue = "0"
     } else if (sourceValue.endsWith(".")) {
@@ -74,9 +74,9 @@ function calcValue(state: RootState, sourceValue: string, sourceSide: string) {
     }
     let sourceValueDecimal = new Decimal(sourceValue)
     if (sourceSide === "left") {
-        sourceValueDecimal = sourceValueDecimal.mul(leftExchangeRate/rightExchangeRate)
+        sourceValueDecimal = sourceValueDecimal.mul(leftExchangeRate.div(rightExchangeRate))
     } else {
-        sourceValueDecimal = sourceValueDecimal.mul(rightExchangeRate/leftExchangeRate)
+        sourceValueDecimal = sourceValueDecimal.mul(rightExchangeRate.div(leftExchangeRate))
     }
     return sourceValueDecimal.toDecimalPlaces(4).toString()
 }
